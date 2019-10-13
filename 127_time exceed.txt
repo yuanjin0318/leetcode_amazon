@@ -1,0 +1,16 @@
+from string import ascii_lowercase
+
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        item = [(beginWord,1)]
+        while item:
+            word, layer = item.pop(0)
+            if word == endWord: return layer
+            for i in range(len(word)):
+                for c in ascii_lowercase:
+                    newword = word[:i]+c+word[i+1:]
+                    if newword!= word and newword not in wordList:
+                        item.append((newword,layer+1))
+                        wordList.remove(newword)
+        return 0
+                   
