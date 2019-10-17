@@ -1,0 +1,7 @@
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        res239 = []
+        if not nums or k==0: return res239
+        for i in range(len(nums)-k+1):
+            res239.append(max(nums[i:i+k]))
+        return res239
